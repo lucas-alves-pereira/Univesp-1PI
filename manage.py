@@ -46,22 +46,22 @@ def main():
                     ],
                 },
             }],
-            DATABASES={
-                'default': {
-                    'ENGINE': 'django.db.backends.mysql',  # Usando banco SQLite para teste
-                    'NAME': os.path.join(BASE_DIR, 'db.mysql'),  # Banco de dados SQLite
-                }
-            },
-            MEDIA_URL='/media/',
-            MEDIA_ROOT=MEDIA_DIR,  # Diretório de mídia
-            STATIC_URL='/static/',
-            LANGUAGE_CODE='pt-br',
-            TIME_ZONE='America/Sao_Paulo',
-            USE_I18N=True,
-            USE_TZ=True,
-            DEFAULT_AUTO_FIELD='django.db.models.BigAutoField',
-        )
-        django.setup()  # Inicializa o Django com a configuração
+        DATABASES={
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',  # Usando banco SQLite para teste
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Banco de dados SQLite
+            }
+        },
+        MEDIA_URL='/media/',
+        MEDIA_ROOT=MEDIA_DIR,  # Diretório de mídia
+        STATIC_URL='/static/',
+        LANGUAGE_CODE='pt-br',
+        TIME_ZONE='America/Sao_Paulo',
+        USE_I18N=True,
+        USE_TZ=True,
+        DEFAULT_AUTO_FIELD='django.db.models.BigAutoField',
+    )  # Closing parenthesis added here
+    django.setup()  # Inicializa o Django com a configuração
 
     # Executar os comandos do Django (como migrate, shell, etc.)
     execute_from_command_line(sys.argv)
